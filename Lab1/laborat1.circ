@@ -130,46 +130,46 @@ end TCL_Generic;&#13;
     <a name="clabelfont" val="SansSerif bold 16"/>
     <a name="circuitnamedbox" val="true"/>
     <a name="circuitvhdlpath" val=""/>
+    <wire from="(710,250)" to="(710,260)"/>
+    <wire from="(710,290)" to="(710,300)"/>
+    <wire from="(530,270)" to="(530,280)"/>
+    <wire from="(570,240)" to="(570,250)"/>
+    <wire from="(770,320)" to="(890,320)"/>
+    <wire from="(710,260)" to="(890,260)"/>
+    <wire from="(520,310)" to="(570,310)"/>
+    <wire from="(710,230)" to="(890,230)"/>
     <wire from="(710,440)" to="(890,440)"/>
+    <wire from="(370,450)" to="(550,450)"/>
+    <wire from="(710,370)" to="(710,440)"/>
     <wire from="(710,300)" to="(770,300)"/>
+    <wire from="(530,270)" to="(570,270)"/>
+    <wire from="(710,310)" to="(750,310)"/>
+    <wire from="(370,410)" to="(540,410)"/>
+    <wire from="(570,200)" to="(570,230)"/>
     <wire from="(540,330)" to="(540,410)"/>
+    <wire from="(720,290)" to="(890,290)"/>
+    <wire from="(770,300)" to="(770,320)"/>
+    <wire from="(720,270)" to="(720,290)"/>
     <wire from="(740,380)" to="(890,380)"/>
     <wire from="(750,310)" to="(750,350)"/>
+    <wire from="(550,350)" to="(570,350)"/>
     <wire from="(370,280)" to="(530,280)"/>
+    <wire from="(710,350)" to="(730,350)"/>
     <wire from="(710,330)" to="(740,330)"/>
+    <wire from="(540,330)" to="(570,330)"/>
+    <wire from="(730,410)" to="(890,410)"/>
+    <wire from="(550,350)" to="(550,450)"/>
     <wire from="(370,370)" to="(520,370)"/>
+    <wire from="(500,290)" to="(500,330)"/>
+    <wire from="(570,370)" to="(570,490)"/>
+    <wire from="(520,310)" to="(520,370)"/>
+    <wire from="(730,350)" to="(730,410)"/>
+    <wire from="(740,330)" to="(740,380)"/>
+    <wire from="(370,330)" to="(500,330)"/>
     <wire from="(710,270)" to="(720,270)"/>
     <wire from="(370,490)" to="(570,490)"/>
     <wire from="(500,290)" to="(570,290)"/>
     <wire from="(760,320)" to="(770,320)"/>
-    <wire from="(770,320)" to="(890,320)"/>
-    <wire from="(530,270)" to="(570,270)"/>
-    <wire from="(770,300)" to="(770,320)"/>
-    <wire from="(550,350)" to="(570,350)"/>
-    <wire from="(710,350)" to="(730,350)"/>
-    <wire from="(540,330)" to="(570,330)"/>
-    <wire from="(730,410)" to="(890,410)"/>
-    <wire from="(550,350)" to="(550,450)"/>
-    <wire from="(570,370)" to="(570,490)"/>
-    <wire from="(710,250)" to="(710,260)"/>
-    <wire from="(710,290)" to="(710,300)"/>
-    <wire from="(530,270)" to="(530,280)"/>
-    <wire from="(710,260)" to="(890,260)"/>
-    <wire from="(370,410)" to="(540,410)"/>
-    <wire from="(730,350)" to="(730,410)"/>
-    <wire from="(370,330)" to="(500,330)"/>
-    <wire from="(570,240)" to="(570,250)"/>
-    <wire from="(520,310)" to="(570,310)"/>
-    <wire from="(710,230)" to="(890,230)"/>
-    <wire from="(370,450)" to="(550,450)"/>
-    <wire from="(710,370)" to="(710,440)"/>
-    <wire from="(710,310)" to="(750,310)"/>
-    <wire from="(570,200)" to="(570,230)"/>
-    <wire from="(720,290)" to="(890,290)"/>
-    <wire from="(720,270)" to="(720,290)"/>
-    <wire from="(500,290)" to="(500,330)"/>
-    <wire from="(520,310)" to="(520,370)"/>
-    <wire from="(740,330)" to="(740,380)"/>
     <wire from="(370,200)" to="(570,200)"/>
     <wire from="(370,240)" to="(570,240)"/>
     <wire from="(750,350)" to="(890,350)"/>
@@ -513,7 +513,6 @@ end TCL_Generic;&#13;
     <a name="circuitnamedbox" val="true"/>
     <a name="circuitvhdlpath" val=""/>
     <wire from="(660,580)" to="(710,580)"/>
-    <wire from="(1220,600)" to="(1390,600)"/>
     <wire from="(1230,730)" to="(1230,880)"/>
     <wire from="(1120,880)" to="(1120,900)"/>
     <wire from="(600,440)" to="(600,470)"/>
@@ -523,7 +522,6 @@ end TCL_Generic;&#13;
     <wire from="(980,640)" to="(980,790)"/>
     <wire from="(330,480)" to="(330,570)"/>
     <wire from="(470,720)" to="(560,720)"/>
-    <wire from="(180,920)" to="(400,920)"/>
     <wire from="(390,380)" to="(600,380)"/>
     <wire from="(1230,480)" to="(1230,730)"/>
     <wire from="(360,470)" to="(360,580)"/>
@@ -550,7 +548,9 @@ end TCL_Generic;&#13;
     <wire from="(690,380)" to="(690,400)"/>
     <wire from="(630,540)" to="(630,690)"/>
     <wire from="(1020,790)" to="(1020,830)"/>
+    <wire from="(1210,770)" to="(1280,770)"/>
     <wire from="(660,580)" to="(660,680)"/>
+    <wire from="(400,810)" to="(400,850)"/>
     <wire from="(380,410)" to="(380,590)"/>
     <wire from="(570,540)" to="(570,600)"/>
     <wire from="(1050,620)" to="(1050,660)"/>
@@ -561,7 +561,6 @@ end TCL_Generic;&#13;
     <wire from="(900,340)" to="(900,480)"/>
     <wire from="(410,350)" to="(410,610)"/>
     <wire from="(660,560)" to="(710,560)"/>
-    <wire from="(1210,770)" to="(1380,770)"/>
     <wire from="(260,560)" to="(310,560)"/>
     <wire from="(260,540)" to="(570,540)"/>
     <wire from="(1130,710)" to="(1130,740)"/>
@@ -569,13 +568,13 @@ end TCL_Generic;&#13;
     <wire from="(310,530)" to="(310,560)"/>
     <wire from="(390,380)" to="(390,600)"/>
     <wire from="(600,370)" to="(710,370)"/>
+    <wire from="(1220,600)" to="(1270,600)"/>
     <wire from="(470,740)" to="(510,740)"/>
     <wire from="(560,420)" to="(710,420)"/>
     <wire from="(540,400)" to="(690,400)"/>
     <wire from="(560,420)" to="(560,720)"/>
     <wire from="(690,380)" to="(710,380)"/>
     <wire from="(1080,660)" to="(1090,660)"/>
-    <wire from="(400,810)" to="(400,920)"/>
     <wire from="(1160,730)" to="(1230,730)"/>
     <wire from="(380,410)" to="(710,410)"/>
     <wire from="(200,620)" to="(200,670)"/>
@@ -598,6 +597,7 @@ end TCL_Generic;&#13;
     <wire from="(510,320)" to="(510,740)"/>
     <wire from="(470,690)" to="(630,690)"/>
     <wire from="(470,700)" to="(620,700)"/>
+    <wire from="(190,850)" to="(400,850)"/>
     <wire from="(260,610)" to="(410,610)"/>
     <wire from="(620,500)" to="(710,500)"/>
     <wire from="(400,810)" to="(1050,810)"/>
@@ -618,30 +618,30 @@ end TCL_Generic;&#13;
       <a name="width" val="8"/>
       <a name="label" val="A"/>
     </comp>
-    <comp lib="0" loc="(180,920)" name="Pin">
-      <a name="width" val="8"/>
-      <a name="label" val="B"/>
-    </comp>
     <comp lib="0" loc="(450,750)" name="Splitter">
       <a name="fanout" val="8"/>
       <a name="incoming" val="8"/>
     </comp>
     <comp loc="(1220,600)" name="Multiflexor4_1"/>
-    <comp lib="0" loc="(1380,770)" name="Pin">
+    <comp loc="(1210,770)" name="Multiflexor4_1"/>
+    <comp lib="0" loc="(1280,770)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="8"/>
       <a name="label" val="Greater"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(1390,600)" name="Pin">
+    <comp lib="0" loc="(1270,600)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="8"/>
       <a name="label" val="Smaller"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(1210,770)" name="Multiflexor4_1"/>
+    <comp lib="0" loc="(190,850)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="label" val="B"/>
+    </comp>
   </circuit>
   <circuit name="Four_Sorting_network">
     <a name="circuit" val="Four_Sorting_network"/>
@@ -653,7 +653,6 @@ end TCL_Generic;&#13;
     <wire from="(450,180)" to="(450,250)"/>
     <wire from="(630,390)" to="(630,400)"/>
     <wire from="(1070,390)" to="(1070,410)"/>
-    <wire from="(1290,390)" to="(1460,390)"/>
     <wire from="(170,240)" to="(230,240)"/>
     <wire from="(170,120)" to="(230,120)"/>
     <wire from="(170,460)" to="(230,460)"/>
@@ -661,14 +660,11 @@ end TCL_Generic;&#13;
     <wire from="(980,180)" to="(980,250)"/>
     <wire from="(450,120)" to="(630,120)"/>
     <wire from="(450,400)" to="(630,400)"/>
+    <wire from="(1200,180)" to="(1300,180)"/>
+    <wire from="(1200,160)" to="(1300,160)"/>
     <wire from="(450,380)" to="(570,380)"/>
-    <wire from="(1200,160)" to="(1390,160)"/>
-    <wire from="(1390,150)" to="(1450,150)"/>
-    <wire from="(1200,180)" to="(1450,180)"/>
     <wire from="(860,370)" to="(900,370)"/>
     <wire from="(860,390)" to="(860,410)"/>
-    <wire from="(1390,150)" to="(1390,160)"/>
-    <wire from="(1440,360)" to="(1440,370)"/>
     <wire from="(870,250)" to="(980,250)"/>
     <wire from="(870,270)" to="(980,270)"/>
     <wire from="(860,410)" to="(1070,410)"/>
@@ -679,13 +675,13 @@ end TCL_Generic;&#13;
     <wire from="(230,120)" to="(230,160)"/>
     <wire from="(230,340)" to="(230,380)"/>
     <wire from="(450,120)" to="(450,160)"/>
+    <wire from="(1290,390)" to="(1320,390)"/>
+    <wire from="(1290,370)" to="(1320,370)"/>
     <wire from="(630,120)" to="(630,370)"/>
     <wire from="(900,120)" to="(970,120)"/>
     <wire from="(900,120)" to="(900,370)"/>
     <wire from="(570,270)" to="(650,270)"/>
     <wire from="(970,160)" to="(980,160)"/>
-    <wire from="(1290,370)" to="(1440,370)"/>
-    <wire from="(1440,360)" to="(1460,360)"/>
     <wire from="(630,390)" to="(640,390)"/>
     <wire from="(630,370)" to="(640,370)"/>
     <wire from="(450,250)" to="(650,250)"/>
@@ -696,38 +692,10 @@ end TCL_Generic;&#13;
     </comp>
     <comp loc="(450,380)" name="One_wire_sorting_network"/>
     <comp loc="(870,250)" name="One_wire_sorting_network"/>
-    <comp lib="0" loc="(1460,360)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="8"/>
-      <a name="label" val="Two"/>
-      <a name="labelloc" val="east"/>
-    </comp>
     <comp loc="(450,160)" name="One_wire_sorting_network"/>
-    <comp lib="0" loc="(1450,150)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="8"/>
-      <a name="label" val="Cero"/>
-      <a name="labelloc" val="east"/>
-    </comp>
     <comp loc="(1200,160)" name="One_wire_sorting_network"/>
     <comp loc="(1290,370)" name="One_wire_sorting_network"/>
-    <comp lib="0" loc="(1450,180)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="8"/>
-      <a name="label" val="One"/>
-      <a name="labelloc" val="east"/>
-    </comp>
     <comp loc="(860,370)" name="One_wire_sorting_network"/>
-    <comp lib="0" loc="(1460,390)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="8"/>
-      <a name="label" val="Three"/>
-      <a name="labelloc" val="east"/>
-    </comp>
     <comp lib="0" loc="(170,120)" name="Pin">
       <a name="width" val="8"/>
     </comp>
@@ -736,6 +704,34 @@ end TCL_Generic;&#13;
     </comp>
     <comp lib="0" loc="(170,460)" name="Pin">
       <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(1320,390)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="label" val="Three"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1320,370)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="label" val="Two"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1300,180)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="label" val="One"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1300,160)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="label" val="Cero"/>
+      <a name="labelloc" val="east"/>
     </comp>
   </circuit>
   <circuit name="Split_largerHalf_smallerHalf">
@@ -1053,8 +1049,8 @@ end TCL_Generic;&#13;
       <rect height="3" stroke="none" width="12" x="51" y="119"/>
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="74" y="85">d1</text>
       <circ-port height="10" pin="1490,580" width="10" x="185" y="55"/>
-      <circ-port height="8" pin="410,60" width="8" x="46" y="96"/>
       <circ-port height="8" pin="110,150" width="8" x="46" y="76"/>
+      <circ-port height="8" pin="410,60" width="8" x="46" y="96"/>
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="71" y="106">d2</text>
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="73" y="124">d3</text>
       <circ-port height="8" pin="650,60" width="8" x="46" y="116"/>
@@ -1134,10 +1130,10 @@ end TCL_Generic;&#13;
     <wire from="(1110,1170)" to="(1390,1170)"/>
     <wire from="(560,350)" to="(560,1300)"/>
     <wire from="(260,50)" to="(260,750)"/>
+    <wire from="(910,570)" to="(960,570)"/>
+    <wire from="(910,850)" to="(960,850)"/>
     <wire from="(780,650)" to="(960,650)"/>
     <wire from="(910,1130)" to="(960,1130)"/>
-    <wire from="(910,850)" to="(960,850)"/>
-    <wire from="(910,570)" to="(960,570)"/>
     <wire from="(910,430)" to="(910,570)"/>
     <wire from="(850,690)" to="(850,830)"/>
     <wire from="(850,410)" to="(850,550)"/>
