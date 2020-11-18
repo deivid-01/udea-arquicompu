@@ -1,17 +1,19 @@
 .data
-	textFile: .asciiz  "Kate Winslet guarda su Oscar en el cuarto de baño para que sus invitados puedan sostenerlo e improvisar sus propios discursos de agradecimiento sin sentirse observados."
+	fileName: .asciiz "E:/udea/arqui-compu/udea-arquicompu/lab3/data.txt"
+	textFile: .space  1024
+	
 	messageInit: .asciiz " Enter sentence to search: "
 	sentence: .space 20
 	sentenceMessage: .asciiz "\nSentence: "
 	aparitionsMessage: .asciiz "Number of aparitions: "
-	endMessage: .asciiz "\nEnd of the program "
-	messageSuccess: .asciiz "Sentence has been found in textFile"
-	newLine: .asciiz "is : "
 .text
 		
 	main: 
 		
+
 		jal printMessageInit 
+		
+		jal readFile
 		jal readSentence	#Read user input
 		
 		jal getLenghtTextFile # $t4=textFile.Lenght
@@ -32,6 +34,28 @@
 		la $a0, messageInit
 		syscall
 		
+		jr $ra
+	readFile:
+	#Open File	
+		li $v0, 13		# System call for open file
+		la $a0, fileName	# Input file name
+		li $a1, 0		# Open for reading (flag = 0)
+		syscall			# Open a file (file descriptor returned in $v0)
+		move $s0, $v0		# Copy file descriptor
+	
+	# Read from file
+		li $v0, 14		# System call for reading from file
+		move $a0, $s0		# File descriptor
+		la $a1, textFile	# Address of input buffer
+		li $a2, 20000		# Maximum number of characters to read
+		syscall			# Read from file
+		move $t9, $v0		# Copy number of characters read
+	
+	#Close the file
+		li $v0, 16
+		move $a0,$s0
+		syscall
+	
 		jr $ra
 # readSentence: Read input sentence to search	
 	readSentence:
