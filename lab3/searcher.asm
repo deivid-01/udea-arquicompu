@@ -1,23 +1,13 @@
 ############ README #########
-# 1. before run , set route of the corresponding textfile in "filename"
-### REGISTERS
-# $s6-> contains the lenght of textFile 
-# $s7-> contains the lenght of sentence
-# #s5-> contains number of ocurrencies
-
-# $s4- > address outputfile
-
-############################
-
-
-
+# 1. Before run , set corresponding routes in inputFile and outpuFile
+###########################
 .data
 	#Routes
 	inputFile: .asciiz "E:/udea/arqui-compu/udea-arquicompu/lab3/input.txt" # Set global route
 	outputFile: .asciiz "E:/udea/arqui-compu/udea-arquicompu/lab3/output.txt"
 	
 	#Lenghts
-	inputFileSize: .space  1024 # Size of textFile
+	inputFileBuffer: .space  1024 # Size of textFile
 	sentence: .space 20 # Size of sentence
 	answerChar: .space 1
 	
@@ -27,7 +17,6 @@
 	sentenceMessage: .asciiz "\nSentence: "
 	aparitionsMessage: .asciiz "\nNumber of aparitions: "
 	questionInput: .asciiz "\nDo you want search another sentence(Y/N) : "
-	successSearch: .asciiz "\n The search was successful"
 	successOutput: .asciiz "\nSearch results were added to the output.text file successfully"
 	
 .text
@@ -35,7 +24,12 @@
 	main: 
 		
 		jal loadInputFile
+		
+		move $s6,$v1 # $v1  returns  the number of characters read from input file
+		
 		jal createOutputFile
+		
+		move $s4,$v1 #$v1 Returns the address of outputFile
 		
 		jal readAndSearchSentece
  
@@ -50,36 +44,33 @@
 
 
 ##################################### MAIN METHODS
-	finalMessage:
+finalMessage:
  		li $v0,4
  		la $a0,successOutput
  		syscall
   jr $ra
 
 
-
-	createOutputFile:
-	#Create file
+####### createOutputFile: Creates the corresponding output file which will save the search results
+createOutputFile:
 		li $v0, 13
 		la $a0, outputFile
 		li $a1, 9            
 		la $a2, 0           
 		syscall
-		move $s4,$v0
+		move $v1,$v0
 		
 		jr $ra
-
-closeOutputFile:
-
-
-		
+###### closeOutputFile: Close outputFile from directory
+closeOutputFile:		
 		li   $v0, 16       # system call for close file
 		move $a0, $s4      # file descriptor to close
 		syscall
 		
 		jr $ra
-#Load textfile from directory
-	loadInputFile:
+		
+###### loadInputFile: Load textfile from directory
+loadInputFile:
 	#Open File	
 		li $v0, 13		# System call for open file
 		la $a0, inputFile	# Input file name
@@ -90,12 +81,13 @@ closeOutputFile:
 	# Read from file
 		li $v0, 14		# System call for reading from file
 		move $a0, $t0		# File descriptor
-		la $a1, inputFileSize	# Address of input buffer
+		la $a1, inputFileBuffer	# Address of input buffer
 		li $a2, 20000		# Maximum number of characters to read
 		syscall			# Read from file
-		move $s6, $v0		# Copy number of characters read
 		
-		sub $s6,$s6,1
+		move $v1, $v0		# Copy number of characters read
+		
+		sub $v1,$v1,1
 	
 	#Close the file
 		li $v0, 16
@@ -104,11 +96,14 @@ closeOutputFile:
 	
 		jr $ra
 
-	readAndSearchSentece:
-		
+
+### readAndSearchSentece: Reads and search the sentence entered by the user
+readAndSearchSentece:
+		#Saving Address of main function
 		addi $sp,$sp,-8
 		sw $s0,0($sp)
-		sw $ra, 4($sp) #Saving Address of main function
+		sw $ra, 4($sp) 
+		
 		loopReadAndSearchSentece:	
 
 			jal printMessageInit 
@@ -117,42 +112,78 @@ closeOutputFile:
 			
 			jal getLenghtSentence 
 			
-			jal searchSentenceInTextFile
+			move $s7,$v1 # $v1 Retuns the lenght of entered sentence
 			
-			jal setOutputFile
+			#Settings arguments for searchSentence		
+			move $a2,$s7	
+			move $a0,$s6	#Characters lenght of input TextFile
+					
+			jal searchSentence
+			
+			move $s5,$v1 #Returns occurrences number of entered sentence
+					
+			
+			#Settings arguments for addResultToOutputFile
+			move $a0,$s7	#Characters lenght of entered sentence
+			move $a1,$s4	#Address Outputfile
+			move $a2,$s5	#Ocurrences sentence
+			
+			jal addResultToOutputFile		
 			
 			jal checkContinueSearch
-	
-			beq $t0,78,exitLoopReadAndSearchSentece
+			
+			move $t0,$v1 # $v1 Returns the user answer
+			
+			beq $t0,78,exitLoopReadAndSearchSentece #(if ==78) Exit | 78->N (ASCII)
 
 			j loopReadAndSearchSentece
 		
 				
 		exitLoopReadAndSearchSentece:
-			lw $ra, 4($sp) #Saving Address of main function
+			lw $ra, 4($sp) #Getting Address of main function
 			jr $ra
 
-#####################
-	printMessageInit: 
-		
+### printMessageInit: Prints initial message
+
+printMessageInit: 
 		li $v0, 4
 		la $a0, messageInit
 		syscall
 		
-		jr $ra
-				
-#######################
-# readSentence: Read input sentence to search	
-	readSentence:
+		jr $ra			
+### readSentence: Read  sentence to search	
+readSentence:
 		li $v0, 8
 		la $a0, sentence
 		li $a1,20
 		syscall
 
 		jr $ra
+### getLenghtSentence: Gets the lenght of entered sentence
+getLenghtSentence:
+			
+		la $a1,sentence 
+		addi $t7,$zero,0 
+		
+		whileSearchSentenceGetLenghtSentence:
+		 
+	
+			addu $a2,$a1,$t7  
+			lbu $a0,($a2)	
+		 	
+		 	beq $a0,10,exitGetLenghtSentence
+			
+		 	addi $t7,$t7,1
+		 	
+		 	j whileSearchSentenceGetLenghtSentence
+		   
+		 exitGetLenghtSentence: 
+		 	sub $t7,$t7,1
+		 	move $v1,$t7
+  			jr $ra	
 
-#########################
-	checkContinueSearch:
+### checkContinueSearch: Ask the user if they want to enter another sentence
+checkContinueSearch:
 			li $v0, 4
 			la $a0,questionInput
 			syscall
@@ -162,34 +193,32 @@ closeOutputFile:
 			li $a1,1
 			syscall
 		
-			move $t0,$v0
+			move $v1,$v0
 			
 			jr $ra
 
-
-
-
-
-
-
-setOutputFile:
+### addResultToOutputFile: Add serch result to output File
+addResultToOutputFile:
 		
 # Append a sentence to a file
-
+		move $t7,$a0
+		move $t4,$a1
+		move $t6 ,$a2
+		
 		li $v0, 15		# System call for write to a file
-		move $a0, $s4		# Restore file descriptor (open for writing)
+		move $a0, $t4		# Restore file descriptor (open for writing)
 		la $a1, sentenceMessage	# Address of buffer from which to write
 		addi $a2, $zero,11		# Number of characters to write
 		syscall
 		
 		li $v0, 15		# System call for write to a file
-		move $a0, $s4		# Restore file descriptor (open for writing)
+		move $a0, $t4		# Restore file descriptor (open for writing)
 		la $a1, sentence	# Address of buffer from which to write
-		addi $a2, $s7,1		# Number of characters to write
+		addi $a2, $t7,1		# Number of characters to write
 		syscall
 				
 		li $v0, 15		# System call for write to a file
-		move $a0, $s4		# Restore file descriptor (open for writing)
+		move $a0, $t4		# Restore file descriptor (open for writing)
 		la $a1, aparitionsMessage	# Address of buffer from which to write
 		addi $a2, $zero,23		# Number of characters to write
 		syscall	
@@ -205,16 +234,16 @@ setOutputFile:
 		addi $s0, $s0, 3    # point to the end of the buffer
 
 		
-		ble $s5,9,lessThanTen
+		ble $t6 ,9,lessThanTen
 		
 		addi $t8,$zero,10
 	
-		while2:
+		whileSearchSentence2:
 
-		div $s5,$t8
+		div $t6 ,$t8
 		
 		mflo $s3
-		move $s5,$s3
+		move $t6 ,$s3
 	
 		mfhi $t4
 	
@@ -224,15 +253,15 @@ setOutputFile:
 		addi $s0, $s0, -1
 	
 	
-		ble $s5,9,exit2
-		j while2
+		ble $t6 ,9,exit2
+		j whileSearchSentence2
 	
 		exit2:
 		addi $t5, $s3,48      # end line with \n
 		sb $t5, 0($s0)
 	
 		lessThanTen:
-		addi $t5, $s5,48      # end line with \n
+		addi $t5, $t6 ,48      # end line with \n
 		sb $t5, 0($s0)
 
 	
@@ -242,41 +271,27 @@ setOutputFile:
 		move $a1, $s0	# Address of buffer from which to write
 		addi $a2, $zero,3		# Number of characters to write
 		syscall	
-
-		
-		
-		
-		
 	
-	
-#Close file
-	
-
-
-			
-					
-#printMessageInit: Print initial message
 
 		
 # searchSentence: Search sentence if textFile
-	searchSentenceInTextFile:
-		la $a3,inputFileSize
+searchSentence:
+		
+		move $t4,$a0	#$t4 Saves the characters lenght of textFile 
+		move $t5,$a2 	#$t5 sSaves the chracters lenght of sentence
+				
+		la $a3,inputFileBuffer
 		la $a1,sentence
 			
 		addi $t0,$zero,0 # initial index value for textFile
 		addi $t1,$zero,0 # intial index value  for sentence
 		
-		addi $s5,$zero,0 #Counter of ocurrences
+		addi $t6,$zero,0 #Counter of ocurrences
 		
-		
-		 #contains the lenght of textFile 
-		
-
-		
-		
-		while:
+	
+		whileSearchSentence:
 					
-			bgt $t0,$s6,exit	#if( $to>$s6)
+			bgt $t0,$t4,exitSearchSentence	
 			#Indexing strings############################
 			addu $a2,$a3,$t0   
 			lbu $a0,($a2)		# a2 = textFile[t0]			
@@ -299,11 +314,10 @@ setOutputFile:
 			beq $t2,$t3,equalChar
 			bne $t2,$t3,equalCharNot
 					
-		exit:
-		
-			li $v0,4
-			la $a0,successSearch
-			syscall
+		exitSearchSentence:
+
+			
+			move $v1,$t6
 
 			
 			jr $ra
@@ -311,35 +325,14 @@ setOutputFile:
 	
 		
 		
-	getLenghtSentence:
 	
-		
-		la $a1,sentence 
-		addi $s7,$zero,0 
-		
-		whileSentence:
-		 
-	
-			addu $a2,$a1,$s7  
-			lbu $a0,($a2)	
-		 	
-		 	beq $a0,10,exitSentence
-			
-		 	addi $s7,$s7,1
-		 	
-		 	j whileSentence
-		   
-		 exitSentence: 
-		 	sub $s7,$s7,1
-  			jr $ra	
-		
 				
 
 ######### EXTRA METHODS		
 
 	equalChar:
-		beq $t1,$s7,foundSentence	 ###IMPORTANT: Set input sentence lenght here
-		bne $t1,$s7,increaseIndexes ###IMPORTANT: Set input sentence lenght here
+		beq $t1,$t5,foundSentence	 ###IMPORTANT: Set input sentence lenght here
+		bne $t1,$t5,increaseIndexes ###IMPORTANT: Set input sentence lenght here
 
 		
 	equalCharNot:
@@ -349,26 +342,28 @@ setOutputFile:
 					
 	foundSentence:	
 		
-		addi $s5,$s5,1
+		addi $t6,$t6,1
+	
+		
 		
 		addi $t0,$t0,1
 		addi $t1,$zero,1
 		
 		
-		j while	
+		j whileSearchSentence	
 	increaseIndexes:
 		addi $t0,$t0,1 # incremenet t0, t0 is the index
 		addi $t1,$t1,1 # incremenet t1, t1 is the index
 		
-		j while
+		j whileSearchSentence
 	resetIndexSentence:
 		addi $t1,$zero,0
-		j while
+		j whileSearchSentence
 		
 	increaseIndexTextFile:
 		addi $t0,$t0,1
 		
-		j while # Return to while
+		j whileSearchSentence # Return to whileSearchSentence
 	
 	
 
