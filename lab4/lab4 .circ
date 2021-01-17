@@ -207,6 +207,7 @@ end TCL_Generic;&#13;
     <comp lib="0" loc="(240,150)" name="Tunnel">
       <a name="label" val="BNEG"/>
     </comp>
+    <comp lib="1" loc="(710,210)" name="AND Gate"/>
   </circuit>
   <circuit name="ALU_1bit">
     <a name="circuit" val="ALU_1bit"/>
