@@ -7,7 +7,7 @@
 	outputFile: .asciiz "E:/udea/arqui-compu/udea-arquicompu/lab3/output.txt"
 	
 	#Lenghts
-	inputFileBuffer: .space  1024 # Size of textFile
+	inputFileBuffer: .space  10000 # Size of textFile
 	sentence: .space 20 # Size of sentence
 	answerChar: .space 1
 	
